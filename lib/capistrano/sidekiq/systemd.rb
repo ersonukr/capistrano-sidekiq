@@ -25,7 +25,7 @@ module Capistrano
       command = [fetch(:systemctl_bin)]
 
       unless fetch(:service_unit_user) == :system
-        command << "--user"
+        command = "sudo #{command}"
       end
 
       command + args
